@@ -55,3 +55,6 @@ class Person:
             return (self.name, self.age) == (other.name, other.age)
         return NotImplemented
 ```
+# Keywords
+`nonlocal` = the variable is not local, to work with variables inside nested functions, where the variable should not belong to the inner function
+
