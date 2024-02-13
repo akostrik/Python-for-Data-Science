@@ -24,22 +24,28 @@
 * a goal: to create immutable objects, readonly objects
 * a goal: to customize attribute behaviors
 * a goal: to sort objects
-
-
+* a goal : для хранения некоторого состояния, некоторых данных и когда не требуется какое-то поведение в виде функци
 * ≈ "изменяемые именованные кортежи со значениями по умолчанию" (но используют другие механизмы работы)
+* dataclass() декоратор  
 * astuple() converts an instance of the dataclass to a tuple
 * asdict() converts an instance of the dataclass to a dictionary
-* an example of a data class instead of a regular class
+* these pieces of code are equivalent:
+@dataclass
+class Person:
+    name: str
+    age: int = 20
+```
 ```
 class Person:
     def __init__(self, name, age = 20):
         self.name = name
         self.age = age
+ 
+    def __repr__(self):
+        return f"Person(name={self.name!r}, age={self.age!r}"
+     
+    def __eq__(self, other):
+        if other.__class__ is self.__class__:
+            return (self.name, self.age) == (other.name, other.age)
+        return NotImplemented
 ```
-```
-from dataclasses import dataclass
-@dataclass
-class Person:
-    name: str
-    age: int = 20
-```    
