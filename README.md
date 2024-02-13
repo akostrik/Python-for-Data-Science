@@ -18,3 +18,28 @@
 * Фукциия является объектом, соответственно, их можно возвращать из другой функции или передавать в качестве аргумента. Также следует помнить, что функция в python может быть определена и внутри другой функции
 * функции и методы — это практически одно и то же, за исключением того, что методы всегда ожидают первым параметром ссылку на сам объект (self). Это значит, что мы можем создавать декораторы для методов точно так же, как и для функций, просто не забывая про self.
 
+# Data class
+* a goal: to define classes with less code and more functionality out of the box
+* a goal: автоматизировать генерацию классов, которые используются для хранения данных
+* a goal: to create immutable objects, readonly objects
+* a goal: to customize attribute behaviors
+* a goal: to sort objects
+
+
+* ≈ "изменяемые именованные кортежи со значениями по умолчанию" (но используют другие механизмы работы)
+* astuple() converts an instance of the dataclass to a tuple
+* asdict() converts an instance of the dataclass to a dictionary
+* an example of a data class instead of a regular class
+```
+class Person:
+    def __init__(self, name, age = 20):
+        self.name = name
+        self.age = age
+```
+```
+from dataclasses import dataclass
+@dataclass
+class Person:
+    name: str
+    age: int = 20
+```    
