@@ -25,8 +25,13 @@
 * a goal: to customize attribute behaviors
 * a goal: to sort objects
 * a goal : для хранения некоторого состояния, некоторых данных и когда не требуется какое-то поведение в виде функци
+* a goal: прежде всего для хранения различных данных, но также в них можно определять поведение с помощью дополнительных функций
 * ≈ "изменяемые именованные кортежи со значениями по умолчанию" (но используют другие механизмы работы)
-* dataclass() декоратор  
+* dataclass() декоратор
+* С помощью параметров декоратор dataclass позволяет сгенерировать дополнительный шаблонный код и вообще настроить генерацию кода:
+```
+def dataclass(cls=None, /, *, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False)
+```
 * astuple() converts an instance of the dataclass to a tuple
 * asdict() converts an instance of the dataclass to a dictionary
 * these pieces of code are equivalent:
