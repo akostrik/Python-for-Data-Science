@@ -34,7 +34,8 @@ def dataclass(cls=None, /, *, init=True, repr=True, eq=True, order=False, unsafe
 ```
 * astuple() converts an instance of the dataclass to a tuple
 * asdict() converts an instance of the dataclass to a dictionary
-* these pieces of code are equivalent:
+* these two pieces of code are equivalent:
+```
 @dataclass
 class Person:
     name: str
